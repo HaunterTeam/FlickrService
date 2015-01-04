@@ -20,7 +20,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 
 public class Server
 {
-    private static final URI BASE_URI = URI.create("http://localhost:8443/flickr/");
+    private static final URI BASE_URI = URI.create("http://localhost:8443/");
 
     //deployment url
     //private static final URI BASE_URI = URI.create("http://localhost:443/mirko-morandi/");
@@ -30,7 +30,7 @@ public class Server
         JdkHttpServerFactory.createHttpServer(BASE_URI, createApp());
         System.out.println("Server started on " + BASE_URI + "\n[kill the process to exit]");
 
-        String apiKey = "ba89157f14a6ae5a17772e71b94831f0";
+        /**String apiKey = "ba89157f14a6ae5a17772e71b94831f0";
         String sharedSecret = "855b1947ced1b8d3";
         Flickr f = new Flickr(apiKey, sharedSecret, new REST());
         TestInterface testInterface = f.getTestInterface();
@@ -46,10 +46,10 @@ public class Server
 
 
         Collection results = testInterface.echo(Collections.EMPTY_MAP);
-        User flickr_user = testInterface.login();
+        User flickr_user = testInterface.login();**/
 
 
-        System.out.println("Done");
+        //System.out.println("Done");
 
     }
     public static ResourceConfig createApp() {
