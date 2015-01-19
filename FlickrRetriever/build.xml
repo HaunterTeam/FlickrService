@@ -106,18 +106,14 @@
 			</fileset>
 			
 		</copy>
-		<echo message="Copying persistence.xml in build folder" />
-		<mkdir dir="${build.dir}/META-INF/" />
-			<copy todir="${build.dir}/META-INF/" overwrite="true">
-				<fileset file="${src.dir}/META-INF/persistence.xml" />
-			</copy>
+		
 		<echo message="${lib.dir}/jars-jsr311-api-1.1.1.jar has been deleted" />
 	    <delete file="${lib.dir}/jars-jsr311-api-1.1.1.jar" />
 	</target>
 
 	<target name="execute.runServer">
 		<echo message="Running server" />
-		<java classname="document.deployment.App" classpath="${build.dir}" fork="true">
+		<java classname="rest.Deployment.Server" classpath="${build.dir}" fork="true">
             <classpath>
 				<fileset dir="${lib.dir}">
 					<include name="**/*.jar" />
