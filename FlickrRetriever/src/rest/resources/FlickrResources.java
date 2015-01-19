@@ -8,7 +8,8 @@ import com.flickr4java.flickr.Flickr;
 import com.flickr4java.flickr.FlickrException;
 import com.flickr4java.flickr.photos.Photo;
 import com.flickr4java.flickr.photos.PhotoList;
-import com.flickr4java.flickr.tags.TagsInterface;
+import com.flickr4java.flickr.photos.PhotosInterface;
+import com.flickr4java.flickr.photos.SearchParameters;
 import rest.Beans.PhotoBean;
 import rest.DAO.FlickrDao;
 
@@ -36,11 +37,16 @@ public class FlickrResources {
     public PhotoBean getFoodPictureFromTag(@PathParam("food") String food){
 
         Flickr f = FlickrDao.instance.getFlickr();
-        TagsInterface tagsInterface = f.getTagsInterface();
+        PhotosInterface photosInterface = f.getPhotosInterface();
         Photo photo = null;
 
         try {
-            PhotoList<Photo> list = tagsInterface.getClusterPhotos(food, "1");
+            SearchParameters parameters = new SearchParameters();
+            parameters.setTags(new String[]{food,"food"});
+            parameters.setSort(SearchParameters.RELEVANCE);
+            parameters.setText(food);
+
+            PhotoList<Photo> list = photosInterface.search(parameters,30,1);
 
             Random rmd = new Random();
             int photo_index = rmd.nextInt(list.size());
