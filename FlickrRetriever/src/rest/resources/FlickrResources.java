@@ -60,4 +60,12 @@ public class FlickrResources {
 
     }
 
+    @Path("/test")
+    @GET()
+    @Produces(MediaType.APPLICATION_JSON)
+    public String test(){
+        return "HelloWorld";
+    }
+
+
 }
