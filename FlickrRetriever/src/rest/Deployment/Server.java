@@ -25,34 +25,13 @@ import rest.DAO.FlickrDao;
 public class Server
 {
     private static final URI BASE_URI = URI.create("http://localhost:8443/");
+    //private static final URI BASE_URI = URI.create("http://95.85.59.254:9091/");
 
       public static void main(String[] args) throws Exception, IllegalArgumentException, IOException, URISyntaxException
     {
         System.out.println("Starting Flickr standalone HTTP server...");
         JdkHttpServerFactory.createHttpServer(BASE_URI, createApp());
         System.out.println("Server started on " + BASE_URI + "\n[kill the process to exit]");
-
-        Flickr f = FlickrDao.instance.getFlickr();
-        PhotosInterface photosInterface = f.getPhotosInterface();
-        Photo photo = null;
-
-        try {
-            SearchParameters parameters = new SearchParameters();
-            parameters.setTags(new String[]{"pizza","food"});
-            parameters.setSort(SearchParameters.RELEVANCE);
-            parameters.setText("pizza");
-
-            PhotoList<Photo> list = photosInterface.search(parameters,30,1);
-
-            Random rmd = new Random();
-            int photo_index = rmd.nextInt(list.size());
-            photo = list.get(photo_index);
-        }
-        catch (FlickrException ex){
-            System.out.println(ex.getMessage());
-        }
-        System.out.println(photo.getUrl());
-
 
     }
     public static ResourceConfig createApp() {

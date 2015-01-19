@@ -27,21 +27,6 @@ public enum FlickrDao {
        flickr = new Flickr(apiKey, sharedSecret, new REST());
     }
 
-    /***
-     * Creates a new instance of the mapper
-     * @return the mapper
-     */
-    public DozerBeanMapper createDozerMapper()
-    {
-        List<String> myMappingFiles = new ArrayList<String>();
-        myMappingFiles.add("dozermappings.xml");
-
-        DozerBeanMapper mapper = new DozerBeanMapper();
-        mapper.setMappingFiles(myMappingFiles);
-
-        return mapper;
-
-    }
 
     public Flickr getFlickr() {
         return flickr;
