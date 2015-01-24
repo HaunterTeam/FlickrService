@@ -1,38 +1,34 @@
 package rest.Deployment;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Random;
 
-import com.flickr4java.flickr.Flickr;
-import com.flickr4java.flickr.FlickrException;
-import com.flickr4java.flickr.REST;
-import com.flickr4java.flickr.people.User;
-import com.flickr4java.flickr.photos.Photo;
-import com.flickr4java.flickr.photos.PhotoList;
-import com.flickr4java.flickr.photos.PhotosInterface;
-import com.flickr4java.flickr.photos.SearchParameters;
-import com.flickr4java.flickr.tags.ClusterList;
-import com.flickr4java.flickr.tags.TagsInterface;
-import com.flickr4java.flickr.test.TestInterface;
 import org.glassfish.jersey.jdkhttp.JdkHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
-import rest.DAO.FlickrDao;
 
 public class Server
 {
-    private static final URI BASE_URI = URI.create("http://localhost:8443/");
-    //private static final URI BASE_URI = URI.create("http://95.85.59.254:9091/");
 
-      public static void main(String[] args) throws Exception, IllegalArgumentException, IOException, URISyntaxException
+    public static void main(String[] args) throws Exception, IllegalArgumentException, IOException, URISyntaxException
     {
-        System.out.println("Starting Flickr standalone HTTP server...");
-        JdkHttpServerFactory.createHttpServer(BASE_URI, createApp());
-        System.out.println("Server started on " + BASE_URI + "\n[kill the process to exit]");
+    	
+        String protocol = Settings.BASE_PROTOCOL;
+        String port = System.getenv("PORT");
+        if (port == null || port.isEmpty()) {
+            port = Settings.BASE_PORT;
+        }
+        String hostname = InetAddress.getLocalHost().getHostAddress();
+        if (hostname.equals(Settings.BASE_URL))
+        {
+            hostname = "localhost";
+        }
 
+        URI baseUrl = new URI(protocol + hostname + ":" + port + "/");
+        System.out.println("Starting Flickr standalone HTTP server..");
+        JdkHttpServerFactory.createHttpServer(baseUrl, createApp());
+        System.out.println("server starts on " + baseUrl + "\n [kill the process to exit]");
     }
     public static ResourceConfig createApp() {
         return new MyApplicationConfig();
