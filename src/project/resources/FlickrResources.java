@@ -35,7 +35,9 @@ public class FlickrResources {
     @GET
     @Path("{food}")
     @Produces(MediaType.APPLICATION_JSON )
-    public PhotoBean getFoodPictureFromTag(@PathParam("food") String food){
+    public PhotoBean getFoodPictureFromTag(@PathParam("food") String food) {
+    	
+    	System.err.println("Here");
 
         Flickr f = FlickrDao.instance.getFlickr();
         PhotosInterface photosInterface = f.getPhotosInterface();
@@ -60,13 +62,4 @@ public class FlickrResources {
         return PhotoBean.createBeanFromPhoto(photo);
 
     }
-
-    @Path("/test")
-    @GET()
-    @Produces(MediaType.APPLICATION_JSON)
-    public String test(){
-        return "HelloWorld";
-    }
-
-
 }
