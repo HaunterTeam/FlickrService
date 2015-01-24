@@ -25,7 +25,7 @@ public class App
             hostname = "localhost";
         }
 
-        URI baseUrl = new URI(protocol + hostname + ":" + port + "/");
+        URI baseUrl = new URI(protocol + hostname + ":" + port + path);
         System.err.println(baseUrl);
         System.out.println("Starting Flickr standalone HTTP server..");
         JdkHttpServerFactory.createHttpServer(baseUrl, createApp());
