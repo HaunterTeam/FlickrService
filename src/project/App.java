@@ -1,4 +1,4 @@
-package rest.Deployment;
+package project;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -8,7 +8,7 @@ import java.net.URISyntaxException;
 import org.glassfish.jersey.jdkhttp.JdkHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 
-public class Server
+public class App
 {
 
     public static void main(String[] args) throws Exception, IllegalArgumentException, IOException, URISyntaxException
@@ -25,7 +25,7 @@ public class Server
             hostname = "localhost";
         }
 
-        URI baseUrl = new URI(protocol + hostname + ":" + port + "/");
+        URI baseUrl = new URI(protocol + hostname + port + "/");
         System.out.println("Starting Flickr standalone HTTP server..");
         JdkHttpServerFactory.createHttpServer(baseUrl, createApp());
         System.out.println("server starts on " + baseUrl + "\n [kill the process to exit]");

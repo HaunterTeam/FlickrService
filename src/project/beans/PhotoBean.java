@@ -1,4 +1,4 @@
-package rest.Beans;
+package project.beans;
 
 import com.flickr4java.flickr.photos.Photo;
 

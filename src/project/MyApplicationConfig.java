@@ -1,4 +1,4 @@
-package rest.Deployment;
+package project;
 
 import javax.ws.rs.ApplicationPath;
 

@@ -1,4 +1,4 @@
-package rest.resources;
+package project.resources;
 
 /**
  * Created by les on 28/12/14.
@@ -10,8 +10,6 @@ import com.flickr4java.flickr.photos.Photo;
 import com.flickr4java.flickr.photos.PhotoList;
 import com.flickr4java.flickr.photos.PhotosInterface;
 import com.flickr4java.flickr.photos.SearchParameters;
-import rest.Beans.PhotoBean;
-import rest.DAO.FlickrDao;
 
 import java.io.IOException;
 import java.util.List;
@@ -22,6 +20,9 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Request;
 import javax.ws.rs.core.UriInfo;
+
+import project.beans.PhotoBean;
+import project.dao.FlickrDao;
 
 @Path("/flickr")
 public class FlickrResources {

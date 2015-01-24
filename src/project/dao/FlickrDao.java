@@ -1,4 +1,4 @@
-package rest.DAO;
+package project.dao;
 
 /**
  * Created by les on 01/11/14.

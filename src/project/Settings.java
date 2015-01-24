@@ -1,4 +1,4 @@
-package rest.Deployment;
+package project;
 
 public class Settings {
 	
