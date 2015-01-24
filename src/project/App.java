@@ -19,7 +19,7 @@ public class App
             port = Settings.BASE_PORT;
         }
         String hostname = InetAddress.getLocalHost().getHostAddress();
-        String path = Settings.SERVICE_PATH;
+        String path = Settings.BASE_PATH;
         if (hostname.equals(Settings.BASE_URL))
         {
             hostname = "localhost";
