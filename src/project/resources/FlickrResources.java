@@ -24,7 +24,7 @@ import javax.ws.rs.core.UriInfo;
 import project.beans.PhotoBean;
 import project.dao.FlickrDao;
 
-@Path("/flickr/")
+@Path("/flickr")
 public class FlickrResources {
 
     @Context
