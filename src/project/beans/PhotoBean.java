@@ -1,8 +1,9 @@
 package project.beans;
 
-import com.flickr4java.flickr.photos.Photo;
-
 import java.util.Date;
+
+import com.flickr4java.flickr.FlickrException;
+import com.flickr4java.flickr.photos.Photo;
 
 /**
  * Created by les on 28/12/14.
@@ -58,14 +59,19 @@ public class PhotoBean {
         this.title = title;
     }
 
-    public static PhotoBean createBeanFromPhoto(Photo photo){
+    public static PhotoBean createBeanFromPhoto(Photo photo) {
         PhotoBean bean = new PhotoBean();
 
         bean.setDateAdded(photo.getDateAdded());
         bean.setDescription(photo.getDescription());
         bean.setId(photo.getId());
         bean.setTitle(photo.getTitle());
-        bean.setUrl(photo.getUrl());
+//        try {
+        	bean.setUrl(photo.getLargeUrl());
+//        } catch (FlickrException fe) {
+//        	fe.printStackTrace();
+//        	bean.setUrl("");
+//        }
 
         return bean;
     }
