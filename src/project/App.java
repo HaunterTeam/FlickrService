@@ -25,8 +25,9 @@ public class App
             hostname = "localhost";
         }
         
+        System.out.println("bombo");
+        
         URI baseUrl = new URI(protocol + hostname + ":" + port + path);
-        System.err.println(baseUrl);
         System.out.println("Starting Flickr standalone HTTP server..");
         JdkHttpServerFactory.createHttpServer(baseUrl, createApp());
         System.out.println("server starts on " + baseUrl + "\n [kill the process to exit]");
