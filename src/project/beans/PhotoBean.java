@@ -66,12 +66,7 @@ public class PhotoBean {
         bean.setDescription(photo.getDescription());
         bean.setId(photo.getId());
         bean.setTitle(photo.getTitle());
-//        try {
-        	bean.setUrl(photo.getLargeUrl());
-//        } catch (FlickrException fe) {
-//        	fe.printStackTrace();
-//        	bean.setUrl("");
-//        }
+        bean.setUrl(photo.getLargeUrl());
 
         return bean;
     }
