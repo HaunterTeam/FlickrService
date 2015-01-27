@@ -47,7 +47,7 @@ public class FlickrResources {
             parameters.setSort(SearchParameters.RELEVANCE);
             parameters.setText(food);
 
-            PhotoList<Photo> list = photosInterface.search(parameters,30,1);
+            PhotoList<Photo> list = photosInterface.search(parameters,10,1);
 
             Random rmd = new Random();
             int photo_index = rmd.nextInt(list.size());
