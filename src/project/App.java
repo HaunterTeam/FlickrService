@@ -18,7 +18,8 @@ public class App
         if (port == null || port.isEmpty()) {
             port = Settings.BASE_PORT;
         }
-        String hostname = InetAddress.getLocalHost().getHostAddress();
+        //String hostname = InetAddress.getLocalHost().getHostAddress();
+        String hostname = "localhost";
         String path = Settings.BASE_PATH;
         if (hostname.equals(Settings.BASE_URL))
         {
