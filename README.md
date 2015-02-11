@@ -1,10 +1,10 @@
 # FlickrService
 
-REST Web service for image retrieval from Flickr. It is hosted on [https://restinflickrservice.herokuapp.com](https://restinflickrservice.herokuapp.com). Given the name of a food or dish (e.g. "pizza"), it provides in output a json object with the url of a beautiful photo taken from Flickr.
+REST Web service for image retrieval from Flickr. It is hosted on [http://188.226.183.46:8040](http://188.226.183.46:8040). Given the name of a food or dish (e.g. "pizza"), it provides in output a json object with the url of a beautiful photo taken from Flickr.
 
 Request:
 ```
-GET http://restinflickrservice.herokuapp.com/flickr-project/flickr/pizza
+GET http://188.226.183.46:8040/flickr-project/flickr/pizza
 ```
 Response:
 ```
